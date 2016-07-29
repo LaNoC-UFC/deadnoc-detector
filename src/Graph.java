@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Graph {
 
@@ -56,5 +55,23 @@ public class Graph {
         }
         stack[from] = false;  // remove the vertex from recursion stack
         return false;
+    }
+
+    Collection<Integer> vertices() {
+        Collection<Integer> result = new ArrayList<>();
+        for (int vertex = 0; vertex < numberOfVertices; vertex++) {
+            result.add(vertex);
+        }
+        return result;
+    }
+
+    Collection<Integer> neighborsOf(Integer vertex) {
+        return neighbors.get(vertex);
+    }
+
+    public Integer newVertex() {
+        numberOfVertices++;
+        neighbors.add(new ArrayList<>());
+        return numberOfVertices-1;
     }
 }
